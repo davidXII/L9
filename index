@@ -1,358 +1,312 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>End of Service — L9 E-Dating</title>
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L9 E-Dating: End of Service | l9edating.com</title>
+  <meta name="theme-color" content="#c89b3c">
+  <meta name="description" content="L9 E-Dating has shut down as of May 1, 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Fira+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --text-xs: clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
-      --text-sm: clamp(0.875rem,0.8rem + 0.35vw,1rem);
-      --text-base: clamp(1rem,0.95rem + 0.25vw,1.125rem);
-      --text-lg: clamp(1.125rem,1rem + 0.75vw,1.5rem);
-      --text-xl: clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
-      --text-2xl: clamp(2rem,1.2rem + 2.5vw,3.5rem);
-      --text-3xl: clamp(2.5rem,1rem + 4vw,5rem);
-      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
-      --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
-      --space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
-      --radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.75rem;
-      --radius-xl:1rem;--radius-full:9999px;
-      --transition:180ms cubic-bezier(0.16,1,0.3,1);
-      --font-display:'Cabinet Grotesk','Georgia',sans-serif;
-      --font-body:'Satoshi','Inter',sans-serif;
-      --content-default:800px;
-      --color-bg:#0d0c0f;
-      --color-surface:#131118;
-      --color-surface-2:#19171f;
-      --color-divider:#2e2b38;
-      --color-border:#373444;
-      --color-text:#e8e6f0;
-      --color-text-muted:#8e8ba0;
-      --color-text-faint:#5a5770;
-      --color-primary:#e040fb;
-      --color-primary-hover:#ce2af0;
-      --color-primary-highlight:#2d1c35;
-      --color-secondary:#00e5cc;
-      --color-error:#ff4d6d;
-      --color-success:#4ade80;
-      --shadow-glow:0 0 40px rgba(224,64,251,0.3);
-      --shadow-md:0 4px 16px rgba(0,0,0,0.5);
-      --shadow-lg:0 16px 48px rgba(0,0,0,0.6);
+      --color-bg: #0a0a0c;
+      --color-surface: #111116;
+      --color-surface-2: #18181e;
+      --color-border: #2a2730;
+      --color-gold: #c89b3c;
+      --color-gold-light: #c8aa6e;
+      --color-gold-dim: #a07840;
+      --color-blue-muted: #6b8ca0;
+      --color-text: #e8e4d8;
+      --color-text-soft: #9e9a8e;
+      --color-muted: #5a5650;
+      --font-display: 'Cinzel', 'Georgia', serif;
+      --font-body: 'Inter', 'Segoe UI', sans-serif;
+      --font-mono: 'Fira Mono', 'Consolas', monospace;
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
-    body{
-      min-height:100vh;line-height:1.65;
-      font-family:var(--font-body);font-size:var(--text-base);
-      color:var(--color-text);background:var(--color-bg);overflow-x:hidden;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
     }
-    img{display:block;max-width:100%;height:auto}
-    p,li{max-width:72ch}
-    h1,h2,h3{line-height:1.1}
-    button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
-    a{color:inherit;text-decoration:none;transition:color var(--transition)}
-    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-
-    .bg-dots{
-      position:fixed;inset:0;
-      background-image:radial-gradient(circle,rgba(224,64,251,0.12) 1px,transparent 1px);
-      background-size:32px 32px;pointer-events:none;z-index:0;
+    a { color: var(--color-gold); text-decoration: none; }
+    a:hover { color: var(--color-gold-light); }
+    strong { color: var(--color-text); font-weight: 600; }
+    .appShell { display: flex; flex-direction: column; min-height: 100vh; }
+    .disclaimer {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 6px 24px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-muted);
+      text-align: center;
     }
-    .page-wrap{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
-    .container{max-width:var(--content-default);margin-inline:auto;padding-inline:var(--space-6)}
-
-    header{padding:var(--space-6) 0;border-bottom:1px solid var(--color-divider)}
-    .header-inner{display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;align-items:center;gap:var(--space-3)}
-    .logo-text{font-family:var(--font-display);font-weight:800;font-size:var(--text-lg);letter-spacing:-0.02em}
-    .logo-text span{color:var(--color-primary)}
-    .badge-eos{
-      display:inline-flex;align-items:center;gap:var(--space-2);
-      padding:var(--space-1) var(--space-3);
-      background:rgba(255,77,109,0.1);border:1px solid rgba(255,77,109,0.3);
-      border-radius:var(--radius-full);
-      font-size:var(--text-xs);font-weight:500;color:var(--color-error);
-      letter-spacing:.04em;text-transform:uppercase;
+    .alpha { color: var(--color-gold-dim); font-weight: 500; }
+    header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 24px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .badge-dot{width:6px;height:6px;background:var(--color-error);border-radius:var(--radius-full);animation:pulse-dot 2s ease-in-out infinite;display:inline-block}
-    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-
-    .hero{
-      flex:1;display:flex;flex-direction:column;align-items:center;
-      justify-content:center;text-align:center;
-      padding:clamp(var(--space-16),10vw,var(--space-24)) var(--space-6);
-      position:relative;
+    .logo {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-    .hero-glow{
-      position:absolute;top:50%;left:50%;
-      transform:translate(-50%,-60%);
-      width:clamp(300px,60vw,700px);height:clamp(200px,40vw,500px);
-      background:radial-gradient(ellipse,rgba(224,64,251,0.14) 0%,rgba(224,64,251,0.04) 50%,transparent 70%);
-      pointer-events:none;
+    nav { display: flex; align-items: center; gap: 8px; }
+    .navLink { font-size: 12px; font-weight: 500; color: var(--color-text-soft); padding: 6px 10px; }
+    .navLink:hover { color: var(--color-text); }
+    .navBtn {
+      font-size: 11px; font-weight: 600; color: var(--color-gold);
+      border: 1px solid var(--color-gold); padding: 5px 14px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      font-family: var(--font-mono); background: transparent;
     }
-    .hero-eyebrow{
-      display:inline-flex;align-items:center;gap:var(--space-2);
-      font-size:var(--text-xs);font-weight:500;color:var(--color-text-muted);
-      letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--space-6);
-      padding:var(--space-2) var(--space-4);
-      background:var(--color-surface);border:1px solid var(--color-border);
-      border-radius:var(--radius-full);position:relative;
+    .navBtn:hover { background: rgba(200,155,60,0.1); }
+    .appMain { flex: 1; }
+    .page { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+    .label {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+      color: var(--color-gold); text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 12px;
     }
-    .hero-eyebrow .star{color:var(--color-primary)}
-    .hero h1{
-      font-family:var(--font-display);font-size:var(--text-3xl);
-      font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:var(--space-6);
+    .title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700; color: var(--color-text);
+      line-height: 1.1; margin-bottom: 4px;
     }
-    .hero h1 em{font-style:normal;color:var(--color-primary)}
-    .hero h1 .line2{
-      display:block;color:var(--color-text-muted);
-      font-size:.55em;font-weight:700;letter-spacing:-.01em;margin-top:var(--space-3);
+    .subtitle {
+      font-family: var(--font-mono); font-size: 13px;
+      color: var(--color-muted); margin-bottom: 28px; letter-spacing: 0.04em;
     }
-    .hero-body{
-      max-width:52ch;color:var(--color-text-muted);
-      font-size:var(--text-base);line-height:1.75;margin-bottom:var(--space-10);
+    .statement { border-left: 2px solid var(--color-gold-dim); padding-left: 20px; margin-bottom: 48px; }
+    .body p { color: var(--color-text-soft); font-size: 14px; line-height: 1.75; margin-bottom: 16px; max-width: 66ch; }
+    .body p:last-child { margin-bottom: 0; }
+    .sign { font-family: var(--font-mono); font-size: 12px; color: var(--color-muted); margin-top: 24px !important; font-style: italic; }
+    .statsLabel {
+      font-family: var(--font-mono); font-size: 11px; color: var(--color-gold);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px;
     }
-    .hero-date{font-family:var(--font-display);font-weight:700;color:var(--color-secondary)}
-
-    .action-row{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;justify-content:center}
-    .btn{
-      display:inline-flex;align-items:center;gap:var(--space-2);
-      padding:var(--space-3) var(--space-6);border-radius:var(--radius-md);
-      font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;
-      transition:all var(--transition);white-space:nowrap;min-height:44px;
+    .statGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+      gap: 1px; background: var(--color-border); border: 1px solid var(--color-border);
     }
-    .btn-primary{background:var(--color-primary);color:#0d0c0f;box-shadow:var(--shadow-glow),var(--shadow-md)}
-    .btn-primary:hover{background:var(--color-primary-hover);transform:translateY(-1px);box-shadow:0 0 60px rgba(224,64,251,0.4),var(--shadow-lg)}
-    .btn-primary:active{transform:translateY(0)}
-    .btn-ghost{background:transparent;color:var(--color-text-muted);border:1px solid var(--color-border)}
-    .btn-ghost:hover{color:var(--color-text);border-color:var(--color-text-muted);background:var(--color-surface)}
-
-    .section-divider{border:none;border-top:1px solid var(--color-divider);margin:0}
-
-    .message-section{padding:clamp(var(--space-12),8vw,var(--space-20)) var(--space-6)}
-    .message-card{
-      background:var(--color-surface);border:1px solid var(--color-border);
-      border-radius:var(--radius-xl);padding:clamp(var(--space-8),5vw,var(--space-12));
-      position:relative;overflow:hidden;
+    .stat { background: var(--color-surface); padding: 20px 16px; display: flex; flex-direction: column; gap: 4px; }
+    .statValue { font-family: var(--font-mono); font-size: 22px; font-weight: 500; color: var(--color-gold); line-height: 1; }
+    .statName { font-family: var(--font-mono); font-size: 10px; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .miniStatRow {
+      display: flex; gap: 1px; background: var(--color-border);
+      border: 1px solid var(--color-border); border-top: none; margin-bottom: 32px;
     }
-    .message-card::before{
-      content:'';position:absolute;top:0;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,var(--color-primary),var(--color-secondary),transparent);
+    .miniStat { flex: 1; background: var(--color-surface-2); padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; }
+    .miniValue { font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--color-gold-dim); }
+    .miniName { font-family: var(--font-mono); font-size: 10px; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .chartLabel {
+      font-family: var(--font-mono); font-size: 11px; color: var(--color-gold);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;
     }
-    .message-label{display:inline-block;font-size:var(--text-xs);font-weight:600;color:var(--color-text-faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-4)}
-    .message-card h2{font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--space-6);color:var(--color-text)}
-    .message-card p{color:var(--color-text-muted);font-size:var(--text-base);line-height:1.75;margin-bottom:var(--space-4);max-width:68ch}
-    .message-card p:last-child{margin-bottom:0}
-    .message-card p strong{color:var(--color-text);font-weight:600}
-    .hl-pink{color:var(--color-primary);font-weight:600}
-    .hl-teal{color:var(--color-secondary);font-weight:600}
-
-    .stats-section{padding:0 var(--space-6) clamp(var(--space-12),8vw,var(--space-20))}
-    .section-title{font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--space-8);color:var(--color-text)}
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));gap:var(--space-4)}
-    .stat-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);text-align:center;transition:border-color var(--transition),transform var(--transition)}
-    .stat-card:hover{border-color:rgba(224,64,251,0.4);transform:translateY(-2px)}
-    .stat-number{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--color-primary);letter-spacing:-.03em;line-height:1;margin-bottom:var(--space-2)}
-    .stat-label{font-size:var(--text-xs);color:var(--color-text-faint);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
-
-    .timeline-section{padding:0 var(--space-6) clamp(var(--space-12),8vw,var(--space-20))}
-    .timeline{display:flex;flex-direction:column;position:relative}
-    .timeline::before{content:'';position:absolute;left:11px;top:6px;bottom:6px;width:1px;background:var(--color-divider)}
-    .timeline-item{display:grid;grid-template-columns:24px 1fr;gap:var(--space-4);padding-bottom:var(--space-6);position:relative}
-    .timeline-item:last-child{padding-bottom:0}
-    .timeline-dot{width:24px;height:24px;border-radius:var(--radius-full);background:var(--color-surface);border:2px solid var(--color-border);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;margin-top:2px;flex-shrink:0}
-    .timeline-dot.done{border-color:var(--color-success)}
-    .timeline-dot.done::after{content:'✓';font-size:10px;color:var(--color-success)}
-    .timeline-dot.active{border-color:var(--color-primary);background:var(--color-primary-highlight)}
-    .timeline-dot.active::after{content:'';width:8px;height:8px;background:var(--color-primary);border-radius:var(--radius-full)}
-    .timeline-date{font-size:var(--text-xs);color:var(--color-text-faint);text-transform:uppercase;letter-spacing:.08em;font-weight:500;margin-bottom:var(--space-1)}
-    .timeline-title{font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--color-text);margin-bottom:var(--space-1)}
-    .timeline-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6}
-
-    footer{border-top:1px solid var(--color-divider);padding:var(--space-8) var(--space-6)}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4)}
-    .footer-copy{font-size:var(--text-xs);color:var(--color-text-faint)}
-    .footer-copy a:hover{color:var(--color-text-muted)}
-    .footer-links{display:flex;gap:var(--space-6)}
-    .footer-links a{font-size:var(--text-xs);color:var(--color-text-faint);transition:color var(--transition)}
-    .footer-links a:hover{color:var(--color-text-muted)}
-
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(0.16,1,0.3,1),transform .55s cubic-bezier(0.16,1,0.3,1)}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-
-    @media(max-width:600px){
-      .action-row{flex-direction:column;width:100%}
-      .btn{width:100%;justify-content:center}
-      .footer-inner{flex-direction:column;align-items:flex-start}
+    .chartWrap { background: var(--color-surface); border: 1px solid var(--color-border); padding: 16px; margin-bottom: 24px; }
+    .bar { fill: #c89b3c; opacity: 0.8; }
+    .axis-text { font-family: 'Fira Mono', monospace; font-size: 9px; fill: #5a5650; }
+    .grid-line { stroke: #2a2730; stroke-dasharray: 3 3; }
+    .hbar-fill { fill: #c89b3c; opacity: 0.8; }
+    .hbar-label { font-family: 'Fira Mono', monospace; font-size: 10px; fill: #9e9a8e; }
+    .chartRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+    .legend-item { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10px; color: var(--color-text-soft); }
+    footer { border-top: 1px solid var(--color-border); padding: 20px 24px; text-align: center; }
+    .footer-text { font-family: var(--font-mono); font-size: 11px; color: var(--color-muted); }
+    @media (max-width: 540px) {
+      .chartRow { grid-template-columns: 1fr; }
+      .miniStatRow { flex-direction: column; }
+      nav .navLink { display: none; }
+      .page { padding: 32px 16px 60px; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-dots" aria-hidden="true"></div>
-  <div class="page-wrap">
+<div class="appShell">
 
-    <header>
-      <div class="container">
-        <div class="header-inner">
-          <a href="#" class="logo" aria-label="L9 E-Dating">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <rect x="2" y="2" width="32" height="32" rx="8" fill="rgba(224,64,251,0.15)" stroke="rgba(224,64,251,0.5)" stroke-width="1.5"/>
-              <path d="M8 10 L8 26 L15 26" stroke="#e040fb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M19 10 L27 10 L27 20 L19 20 L19 10 Z" stroke="#00e5cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M27 20 L27 26" stroke="#00e5cc" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="logo-text">L9 <span>E-Dating</span></span>
-          </a>
-          <span class="badge-eos" role="status">
-            <span class="badge-dot" aria-hidden="true"></span>
-            End of Service
-          </span>
-        </div>
-      </div>
-    </header>
-
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="container" style="display:flex;flex-direction:column;align-items:center;position:relative">
-        <div class="hero-eyebrow reveal">
-          <span class="star">✦</span>&nbsp; May 1, 2026 — Service Terminated
-        </div>
-        <h1 id="hero-title" class="reveal" style="transition-delay:80ms">
-          it's a wrap,<br><em>nerds.</em>
-          <span class="line2">the e-dating experiment is officially over.</span>
-        </h1>
-        <p class="hero-body reveal" style="transition-delay:160ms">
-          What started as an April Fools bit somehow got real enough to need a proper shutdown page.
-          The servers went dark <span class="hero-date">May 1st, 2026</span>.
-          If you found your edate — congrats. If you didn't — same lol.
-        </p>
-        <div class="action-row reveal" style="transition-delay:240ms">
-          <a href="#the-message" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Read the message
-          </a>
-          <a href="#data" class="btn btn-ghost">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            By the numbers
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <section class="message-section" id="the-message" aria-labelledby="msg-title">
-      <div class="container">
-        <div class="message-card reveal">
-          <span class="message-label">A note from the creator</span>
-          <h2 id="msg-title">An extended April Fools joke, now officially retired.</h2>
-          <p>
-            <strong>As announced</strong>, this extended April Fools joke has now officially ended on
-            <span class="hl-teal">May 1st, 2026</span>. I never intended for this to be more than a joke,
-            but somewhere along the way it became a real thing — with real users, real matches, and
-            real 3am spacegliding sessions together. That's genuinely insane. Love you all for that.
-          </p>
-          <p>
-            <strong>Your data belongs to you.</strong> Everything was exportable as JSON before shutdown.
-            No one got doxxed, no one got sold. The whole point was just to help some
-            <span class="hl-pink">L9 homies</span> find their edates without dealing with random
-            pissl0w tourists ruining the vibe. Mission accomplished for a few of you, at least.
-          </p>
-          <p>
-            The <span class="hl-pink">community lives on</span> wherever you've already taken it —
-            Discord, the streams, wherever. L9 was never the app. It was always the people.
-            Thanks for being down for a dumb joke that got out of hand. Spaceglide in peace. o7
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats-section" id="data" aria-labelledby="stats-title">
-      <div class="container">
-        <h2 id="stats-title" class="section-title reveal">by the numbers</h2>
-        <div class="stats-grid">
-          <div class="stat-card reveal">
-            <div class="stat-number">o7</div>
-            <div class="stat-label">Final Salute</div>
-          </div>
-          <div class="stat-card reveal" style="transition-delay:60ms">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Edates Possible</div>
-          </div>
-          <div class="stat-card reveal" style="transition-delay:120ms">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Data Sold</div>
-          </div>
-          <div class="stat-card reveal" style="transition-delay:180ms">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Epic Bit</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="timeline-section" aria-labelledby="tl-title">
-      <div class="container">
-        <h2 id="tl-title" class="section-title reveal">how it went down</h2>
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="timeline-dot done" role="img" aria-label="Done"></div>
-            <div>
-              <div class="timeline-date">April 1, 2026</div>
-              <div class="timeline-title">The Bit Begins</div>
-              <div class="timeline-desc">Launched as a joke. Shitl0w filter activated. Rand0ms filtered out automatically. Community goes feral.</div>
-            </div>
-          </div>
-          <div class="timeline-item reveal" style="transition-delay:80ms">
-            <div class="timeline-dot done" role="img" aria-label="Done"></div>
-            <div>
-              <div class="timeline-date">April — May 2026</div>
-              <div class="timeline-title">Things Get Real</div>
-              <div class="timeline-desc">Actual matches. Actual people. Someone probably spaceglided together at 3am. Data export feature shipped.</div>
-            </div>
-          </div>
-          <div class="timeline-item reveal" style="transition-delay:160ms">
-            <div class="timeline-dot active" role="img" aria-label="Current"></div>
-            <div>
-              <div class="timeline-date">May 1, 2026</div>
-              <div class="timeline-title">Servers Go Dark</div>
-              <div class="timeline-desc">Service officially terminated. Accounts nuked. No data retained. The bit is complete. o7</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <div class="footer-inner">
-          <p class="footer-copy">
-            © 2026 L9 E-Dating — rest in peace, king.
-            &nbsp;·&nbsp;
-            <a href="https://l9edating.com" target="_blank" rel="noopener noreferrer">original site</a>
-          </p>
-          <nav class="footer-links" aria-label="Footer links">
-            <a href="#">Privacy</a>
-            <a href="#">Data Export</a>
-            <a href="#">Discord</a>
-          </nav>
-        </div>
-      </div>
-    </footer>
-
+  <div class="disclaimer">
+    <span><span class="alpha">Build version 1.0.0</span> &mdash; Not affiliated with or endorsed by Riot Games.</span>
   </div>
 
-  <script>
-    const obs = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
+  <header>
+    <a href="/" class="logo">L9 E-Dating</a>
+    <nav>
+      <a href="#" class="navLink">Our Mission</a>
+      <a href="#" class="navLink">Anton</a>
+      <a href="#" class="navBtn">Create Profile</a>
+    </nav>
+  </header>
+
+  <main class="appMain">
+    <div class="page">
+
+      <p class="label">Official Statement</p>
+      <h1 class="title">We've shut down</h1>
+      <p class="subtitle">May 1, 2026</p>
+
+      <blockquote class="statement">
+        <div class="body">
+          <p>Hi,</p>
+          <p>L9 E-Dating sparked from a random thought three days before April Fools day this year: what if I made an e-dating site for League of Legends players, make it have edgy L9 wording and shadowdropped it as an April Fools joke, then shut it down after a week. The response to the site was way more than I expected, and it's been really fun to see people's reactions to the site on social media. It's honestly heartwarming to see that something I threw together in a few days just for fun actually became a little community that people cared about.</p>
+          <p>As announced, this extended April Fools joke has now <strong>officially ended on May 1st, 2026</strong>. I never intended for this to be more than a joke, let alone something permanent. <strong>All user data, including profiles, matches, messages, and likes, has been permanently deleted.</strong> There is no way to recover any of it.</p>
+          <p>I'm aware that this might be disappointing to some of you, and I'm sorry for that. I was honestly expecting people to find it funny for a few days, especially given how many easter eggs I put in, but not to the extent of reaching almost <strong>1,000 concurrent users</strong> at the site's peak.</p>
+          <p>I'd also like to clarify that <strong>L9 E-Dating has no affiliation with other websites, Discord servers, or platforms</strong>. The only existing social media presence in relation to L9 E-Dating exists as a <a href="https://twitter.com/l9edating" target="_blank" rel="noopener noreferrer">Twitter account</a> which I've mostly used for clarifying some things to people and will not be used for anything else either anymore, simply putting it here for transparency.</p>
+          <p>I'm aware that people have tried drawing connections between the creation of L9 E-Dating and certain Discord servers or other platforms, which I will not name as to not draw more attention to them, but I personally find it disgusting how predatory these Discord servers and platforms are trying to exploit the desperation of some people by selling special roles or other perks to them in the hopes that this will help them find a partner.</p>
+          <p>Before all data was deleted, the key numbers were saved so they could still be shown here. Nothing personal, just the totals and breakdowns you can see below. Think of it as the site's final scoreboard.</p>
+          <p class="sign">&mdash; L9 E-Dating Creator</p>
+        </div>
+      </blockquote>
+
+      <p class="statsLabel">By the numbers</p>
+
+      <div class="statGrid">
+        <div class="stat"><span class="statValue">25,774</span><span class="statName">profiles created</span></div>
+        <div class="stat"><span class="statValue">476,660</span><span class="statName">mutual matches</span></div>
+        <div class="stat"><span class="statValue">1,160,211</span><span class="statName">messages sent</span></div>
+        <div class="stat"><span class="statValue">1,197,362</span><span class="statName">likes sent</span></div>
+      </div>
+      <div class="miniStatRow">
+        <div class="miniStat"><span class="miniValue">14,579</span><span class="miniName">PSZ certified</span></div>
+        <div class="miniStat"><span class="miniValue">764</span><span class="miniName">abusive</span></div>
+        <div class="miniStat"><span class="miniValue">1,127</span><span class="miniName">BPD</span></div>
+      </div>
+
+      <p class="chartLabel">Signups per day</p>
+      <div class="chartWrap">
+        <svg width="100%" viewBox="0 0 660 110" preserveAspectRatio="xMidYMid meet">
+          <line class="grid-line" x1="40" y1="10" x2="655" y2="10"/>
+          <line class="grid-line" x1="40" y1="36" x2="655" y2="36"/>
+          <line class="grid-line" x1="40" y1="62" x2="655" y2="62"/>
+          <line class="grid-line" x1="40" y1="88" x2="655" y2="88"/>
+          <text class="axis-text" x="34" y="92" text-anchor="end">0</text>
+          <text class="axis-text" x="34" y="66" text-anchor="end">5k</text>
+          <text class="axis-text" x="34" y="40" text-anchor="end">10k</text>
+          <text class="axis-text" x="34" y="14" text-anchor="end">20k</text>
+          <rect class="bar" x="44"  y="87" width="13" height="1"  rx="1"/>
+          <rect class="bar" x="61"  y="87" width="13" height="1"  rx="1"/>
+          <rect class="bar" x="78"  y="87" width="13" height="1"  rx="1"/>
+          <rect class="bar" x="95"  y="87" width="13" height="1"  rx="1"/>
+          <rect class="bar" x="112" y="87" width="13" height="1"  rx="1"/>
+          <rect class="bar" x="129" y="86" width="13" height="2"  rx="1"/>
+          <rect class="bar" x="146" y="82" width="13" height="6"  rx="1"/>
+          <rect class="bar" x="163" y="55" width="13" height="33" rx="1"/>
+          <rect class="bar" x="180" y="10" width="13" height="78" rx="1"/>
+          <rect class="bar" x="197" y="68" width="13" height="20" rx="1"/>
+          <rect class="bar" x="214" y="75" width="13" height="13" rx="1"/>
+          <rect class="bar" x="231" y="79" width="13" height="9"  rx="1"/>
+          <rect class="bar" x="248" y="81" width="13" height="7"  rx="1"/>
+          <rect class="bar" x="265" y="82" width="13" height="6"  rx="1"/>
+          <rect class="bar" x="282" y="83" width="13" height="5"  rx="1"/>
+          <rect class="bar" x="299" y="84" width="13" height="4"  rx="1"/>
+          <rect class="bar" x="316" y="85" width="13" height="3"  rx="1"/>
+          <rect class="bar" x="333" y="85" width="13" height="3"  rx="1"/>
+          <rect class="bar" x="350" y="85" width="13" height="3"  rx="1"/>
+          <rect class="bar" x="367" y="86" width="13" height="2"  rx="1"/>
+          <rect class="bar" x="384" y="86" width="13" height="2"  rx="1"/>
+          <rect class="bar" x="401" y="86" width="13" height="2"  rx="1"/>
+          <rect class="bar" x="418" y="87" width="13" height="1"  rx="1"/>
+          <rect class="bar" x="435" y="87" width="13" height="1"  rx="1"/>
+          <text class="axis-text" x="51"  y="102" text-anchor="middle">03-30</text>
+          <text class="axis-text" x="186" y="102" text-anchor="middle">04-01</text>
+          <text class="axis-text" x="254" y="102" text-anchor="middle">04-05</text>
+          <text class="axis-text" x="322" y="102" text-anchor="middle">04-09</text>
+          <text class="axis-text" x="390" y="102" text-anchor="middle">04-13</text>
+          <text class="axis-text" x="441" y="102" text-anchor="middle">04-17</text>
+        </svg>
+      </div>
+
+      <div class="chartRow">
+        <div>
+          <p class="chartLabel">Who showed up</p>
+          <div class="chartWrap" style="margin-bottom:0">
+            <svg width="100%" viewBox="0 0 200 130">
+              <path d="M 150,65 A 50,50,0,0,0 75,21.7 L 88.6,41.5 A 22,22,0,0,1 128,65 Z" fill="#c8aa6e"/>
+              <path d="M 75,21.7 A 50,50,0,0,0 61.3,103.7 L 75.4,87.8 A 22,22,0,0,1 88.6,41.5 Z" fill="#a07840"/>
+              <path d="M 61.3,103.7 A 50,50,0,0,0 150,65 L 128,65 A 22,22,0,0,1 75.4,87.8 Z" fill="#6b8ca0"/>
+              <circle cx="100" cy="65" r="22" fill="#111116"/>
+            </svg>
+            <div class="legend">
+              <div class="legend-item"><svg width="8" height="8"><rect width="8" height="8" fill="#6b8ca0"/></svg>Disco Nunu</div>
+              <div class="legend-item"><svg width="8" height="8"><rect width="8" height="8" fill="#a07840"/></svg>Healslut</div>
+              <div class="legend-item"><svg width="8" height="8"><rect width="8" height="8" fill="#c8aa6e"/></svg>Spaceglider</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="chartLabel">Where you're from</p>
+          <div class="chartWrap" style="margin-bottom:0">
+            <svg width="100%" viewBox="0 0 200 130">
+              <path d="M 150,65 A 50,50,0,1,0 148.8,71.8 L 127.8,67.8 A 22,22,0,1,1 128,65 Z" fill="#c8aa6e"/>
+              <path d="M 148.8,71.8 A 50,50,0,0,0 150,65 L 128,65 A 22,22,0,0,1 127.8,67.8 Z" fill="#a07840"/>
+              <circle cx="100" cy="65" r="22" fill="#111116"/>
+            </svg>
+            <div class="legend">
+              <div class="legend-item"><svg width="8" height="8"><rect width="8" height="8" fill="#a07840"/></svg>EUNE</div>
+              <div class="legend-item"><svg width="8" height="8"><rect width="8" height="8" fill="#c8aa6e"/></svg>EUW</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="chartLabel">Your main (top 10)</p>
+      <div class="chartWrap">
+        <svg width="100%" viewBox="0 0 580 310" style="display:block">
+          <text class="hbar-label" x="105" y="21"  text-anchor="end">Yasuo</text>
+          <rect class="hbar-fill" x="110" y="8"   width="420" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="52"  text-anchor="end">Jinx</text>
+          <rect class="hbar-fill" x="110" y="39"  width="230" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="83"  text-anchor="end">Ahri</text>
+          <rect class="hbar-fill" x="110" y="70"  width="210" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="114" text-anchor="end">Ezreal</text>
+          <rect class="hbar-fill" x="110" y="101" width="195" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="145" text-anchor="end">Zed</text>
+          <rect class="hbar-fill" x="110" y="132" width="180" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="176" text-anchor="end">Lux</text>
+          <rect class="hbar-fill" x="110" y="163" width="160" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="207" text-anchor="end">Thresh</text>
+          <rect class="hbar-fill" x="110" y="194" width="145" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="238" text-anchor="end">Vayne</text>
+          <rect class="hbar-fill" x="110" y="225" width="130" height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="269" text-anchor="end">Yuumi</text>
+          <rect class="hbar-fill" x="110" y="256" width="28"  height="18" rx="1"/>
+          <text class="hbar-label" x="105" y="300" text-anchor="end">Aatrox</text>
+          <rect class="hbar-fill" x="110" y="287" width="20"  height="18" rx="1"/>
+        </svg>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-text">
+      &copy; 2026 l9edating.com &nbsp;&middot;&nbsp;
+      <a href="https://twitter.com/l9edating" target="_blank" rel="noopener noreferrer">@l9edating</a>
+      &nbsp;&middot;&nbsp; Not affiliated with Riot Games.
+    </p>
+  </footer>
+
+</div>
 </body>
 </html>
