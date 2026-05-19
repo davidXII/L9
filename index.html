@@ -1,0 +1,436 @@
+html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cris — personal site</title>
+  <meta name="description" content="cris's personal site. chess, lol, undertale, nintendo, science.">
+  <style>
+    :root {
+      --color-bg:        #07090f;
+      --color-surface:   #0d1020;
+      --color-surface-2: #111428;
+      --color-border:    #1e2540;
+      --color-accent:    #7eb8d4;
+      --color-accent-dim:#4a8aaa;
+      --color-accent-soft:#a8d4e8;
+      --color-text:      #d8e4f0;
+      --color-soft:      #8a9ab8;
+      --color-muted:     #445070;
+      --font-display:    'Courier New', Courier, monospace;
+      --font-body:       'Courier New', Courier, monospace;
+      --font-mono:       'Courier New', Courier, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { color: var(--color-accent-soft); }
+
+    .disclaimer {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 5px 24px;
+      font-size: 11px;
+      color: var(--color-muted);
+      text-align: center;
+      letter-spacing: 0.06em;
+    }
+
+    header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 24px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--color-accent-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    nav { display: flex; gap: 4px; align-items: center; }
+    .navLink {
+      font-size: 11px;
+      color: var(--color-soft);
+      padding: 5px 10px;
+      letter-spacing: 0.06em;
+      transition: color 140ms;
+    }
+    .navLink:hover { color: var(--color-text); }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Forum board block */
+    .board {
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .board-header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .board-title {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .board-count {
+      font-size: 10px;
+      color: var(--color-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* About */
+    .about-row {
+      background: var(--color-surface-2);
+      padding: 20px 16px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--color-accent-soft);
+      letter-spacing: 0.05em;
+    }
+    .about-info { flex: 1; }
+    .about-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--color-text);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .about-tagline {
+      font-size: 11px;
+      color: var(--color-accent-dim);
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .about-bio {
+      font-size: 13px;
+      color: var(--color-soft);
+      line-height: 1.75;
+      max-width: 54ch;
+    }
+    .tags-row {
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 10px;
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+      padding: 2px 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--color-surface);
+      transition: color 140ms, border-color 140ms;
+    }
+    .tag:hover { color: var(--color-accent-dim); border-color: var(--color-accent-dim); }
+
+    /* Currently */
+    .now-row {
+      background: var(--color-surface-2);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .now-row:last-child { border-bottom: none; }
+    .now-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+      box-shadow: 0 0 7px var(--color-accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.25} }
+    .now-label {
+      font-size: 10px;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      min-width: 80px;
+    }
+    .now-text { font-size: 12px; color: var(--color-soft); }
+
+    /* Blog posts */
+    .post-row {
+      background: var(--color-surface-2);
+      border-bottom: 1px solid var(--color-border);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      transition: background 120ms;
+      cursor: pointer;
+    }
+    .post-row:last-child { border-bottom: none; }
+    .post-row:hover { background: var(--color-surface); }
+    .post-left { flex: 1; }
+    .post-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--color-text);
+      margin-bottom: 3px;
+      transition: color 120ms;
+    }
+    .post-row:hover .post-title { color: var(--color-accent-soft); }
+    .post-desc { font-size: 12px; color: var(--color-muted); line-height: 1.5; }
+    .post-right { text-align: right; flex-shrink: 0; }
+    .post-date { font-size: 10px; color: var(--color-muted); letter-spacing: 0.04em; }
+    .post-tag {
+      font-size: 9px;
+      color: var(--color-accent-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 3px;
+    }
+
+    /* Links grid */
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(170px, 100%), 1fr));
+      gap: 1px;
+      background: var(--color-border);
+    }
+    .link-card {
+      background: var(--color-surface-2);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: background 120ms;
+    }
+    .link-card:hover { background: var(--color-surface); }
+    .link-card-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--color-accent);
+      letter-spacing: 0.04em;
+    }
+    .link-card-desc { font-size: 11px; color: var(--color-muted); line-height: 1.5; }
+    .link-card-arrow {
+      font-size: 11px;
+      color: var(--color-border);
+      margin-top: 4px;
+      transition: color 120ms;
+    }
+    .link-card:hover .link-card-arrow { color: var(--color-accent-dim); }
+
+    footer {
+      border-top: 1px solid var(--color-border);
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--color-muted);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 520px) {
+      .about-row { flex-direction: column; }
+      nav .navLink:not(:last-child) { display: none; }
+      .post-row { flex-direction: column; }
+      .post-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="disclaimer">personal site &mdash; work in progress</div>
+
+  <header>
+    <span class="logo">cris</span>
+    <nav>
+      <a href="#about" class="navLink">about</a>
+      <a href="#blog"  class="navLink">blog</a>
+      <a href="#links" class="navLink">links</a>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <!-- ABOUT -->
+    <section id="about" class="board">
+      <div class="board-header">
+        <span class="board-title">about</span>
+        <span class="board-count">est. 2026</span>
+      </div>
+      <div class="about-row">
+        <div class="avatar">C</div>
+        <div class="about-info">
+          <div class="about-name">cris</div>
+          <div class="about-tagline">chess &bull; lol &bull; undertale &bull; nintendo &bull; science</div>
+          <p class="about-bio">
+            I like playing chess, League of Legends, Undertale and Nintendo games.
+            I've acquired some knowledge in sciences along the way.
+            I wish I could dream outside more.
+          </p>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">chess</span>
+        <span class="tag">league of legends</span>
+        <span class="tag">undertale</span>
+        <span class="tag">nintendo</span>
+        <span class="tag">sciences</span>
+        <span class="tag">dreamer</span>
+      </div>
+    </section>
+
+    <!-- CURRENTLY -->
+    <section class="board">
+      <div class="board-header">
+        <span class="board-title">currently</span>
+      </div>
+      <div class="now-row">
+        <div class="now-dot"></div>
+        <span class="now-label">playing</span>
+        <span class="now-text">League of Legends &mdash; ranked grind</span>
+      </div>
+      <div class="now-row">
+        <div class="now-dot" style="background:#4a8aaa;box-shadow:0 0 7px #4a8aaa"></div>
+        <span class="now-label">reading</span>
+        <span class="now-text">something about the universe, probably</span>
+      </div>
+      <div class="now-row">
+        <div class="now-dot" style="background:#2a5a7a;box-shadow:0 0 7px #2a5a7a"></div>
+        <span class="now-label">thinking about</span>
+        <span class="now-text">dreaming outside</span>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="board">
+      <div class="board-header">
+        <span class="board-title">blog</span>
+        <span class="board-count">3 posts</span>
+      </div>
+      <div class="post-row">
+        <div class="post-left">
+          <div class="post-title">What chess taught me about thinking</div>
+          <div class="post-desc">Patterns, patience, and why losing is underrated.</div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">2026-05-10</div>
+          <div class="post-tag">chess</div>
+        </div>
+      </div>
+      <div class="post-row">
+        <div class="post-left">
+          <div class="post-title">Undertale and why some games feel like memories</div>
+          <div class="post-desc">On stories that stay with you longer than they should.</div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">2026-04-22</div>
+          <div class="post-tag">games</div>
+        </div>
+      </div>
+      <div class="post-row">
+        <div class="post-left">
+          <div class="post-title">The science of dreaming outside</div>
+          <div class="post-desc">A loose collection of thoughts on nature, space, and wanting more sky.</div>
+        </div>
+        <div class="post-right">
+          <div class="post-date">2026-04-01</div>
+          <div class="post-tag">science</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" class="board">
+      <div class="board-header">
+        <span class="board-title">links &amp; stuff</span>
+        <span class="board-count">5 entries</span>
+      </div>
+      <div class="link-grid">
+        <div class="link-card">
+          <div class="link-card-title">chess.com</div>
+          <div class="link-card-desc">where I lose games and learn from it</div>
+          <div class="link-card-arrow">&#8599;</div>
+        </div>
+        <div class="link-card">
+          <div class="link-card-title">op.gg</div>
+          <div class="link-card-desc">LoL profile &amp; stats</div>
+          <div class="link-card-arrow">&#8599;</div>
+        </div>
+        <div class="link-card">
+          <div class="link-card-title">undertale</div>
+          <div class="link-card-desc">toby fox's masterpiece</div>
+          <div class="link-card-arrow">&#8599;</div>
+        </div>
+        <div class="link-card">
+          <div class="link-card-title">nintendo</div>
+          <div class="link-card-desc">switch, ds, all of it</div>
+          <div class="link-card-arrow">&#8599;</div>
+        </div>
+        <div class="link-card">
+          <div class="link-card-title">github</div>
+          <div class="link-card-desc">code, projects, this site</div>
+          <div class="link-card-arrow">&#8599;</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    cris &mdash; 2026 &mdash; made with too much free time
+  </footer>
+
+</body>
+</html>"""
+
+import os
+path = '/home/user/cris-site/index.html'
+os.makedirs(os.path.dirname(path), exist_ok=True)
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(html)
+print("Done:", os.path.getsize(path), "bytes")
